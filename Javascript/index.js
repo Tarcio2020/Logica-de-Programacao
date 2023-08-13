@@ -178,34 +178,45 @@ formValorCasa.addEventListener('submit', function(e) {
                 console.log(addVagaGaragem)
 
                 console.log(valorDaCasa)
-
-        
-        
-                
-                
-                
-                
-                
-                
                 
                 //validação da piscina
                 const OpcaoNao = document.getElementById('opcao3').value;
+                const OpcaoPavimento = document.getElementById('opcao4').value;
                 const Sim = 'sim';
                 
                 if (OpcaoNao === Sim) {
-                const addPscina = valorDaCasa + 2000;
-                console.log(addPscina)
+                    const addPscina = valorDaCasa + 2000;
+                    console.log(addPscina)
+
+                if (OpcaoPavimento === Sim){
+                    const valorFinal = addPscina + 20000;
+                    console.log(valorFinal)
+                    const msgNaTelaValorDaCasa = ` valor total da casa é ${valorFinal}`;
+                    const alteraMsgValorCasa = document.getElementById('msgValorCasa');
+                    alteraMsgValorCasa.innerHTML = msgNaTelaValorDaCasa;
+                } else {
+                    const msgNaTelaValorDaCasa = ` valor total da casa é ${addPscina}`;
+                    const alteraMsgValorCasa = document.getElementById('msgValorCasa');
+                    alteraMsgValorCasa.innerHTML = msgNaTelaValorDaCasa;
+                }
+                
                 
                 } else {
                     const devalorizaPscina = valorDaCasa - 1000;
                     console.log(devalorizaPscina)
+
+
+                    if (OpcaoPavimento === Sim){
+                        const valorFinal = devalorizaPscina + 20000;
+                        console.log(valorFinal)
+                        const msgNaTelaValorDaCasa = ` valor total da casa é ${valorFinal}`;
+                        const alteraMsgValorCasa = document.getElementById('msgValorCasa');
+                        alteraMsgValorCasa.innerHTML = msgNaTelaValorDaCasa;
+                    } else {
+                        const msgNaTelaValorDaCasa = ` valor total da casa é ${devalorizaPscina}`;
+                        const alteraMsgValorCasa = document.getElementById('msgValorCasa');
+                        alteraMsgValorCasa.innerHTML = msgNaTelaValorDaCasa;
+                    }
                 }
-       
-
-
     }
-
-
-
-
 })
