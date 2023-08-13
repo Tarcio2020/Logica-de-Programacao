@@ -101,16 +101,44 @@
     Crie um algoritmo que, dada os dados de entradas necessários, realize o calculo do valor total da casa.
         </p>
         <div>
-            <form>
-                <input type="number" placeholder="Metros quadrados construídos">
-                <input type="number" placeholder="Qtd de quartos">
-                <input type="number" placeholder="Qtd de quartos Sem suíte">
-                <input type="number" placeholder="Qtd de quartos Com suíte">
-                <input type="number" placeholder="Qtd de banheiros">
-                <input type="number" placeholder="Qtd de pavimentos">
-                <input type="number" placeholder="Qtd vagas na garagem">
-                <input type="number" placeholder="Tem piscina...Sim ou não">
-                <button type="submit">Calcular</button>
+            <form id="formValorCasa">
+                <input id="areaConstruida" type="number" placeholder="Metros quadrados construídos">
+                <input id="Quartos" type="number" placeholder="Qtd de quartos Sem suíte">
+                <input id="suite" type="number" placeholder="Qtd de quartos Com suíte">
+                <input id="banheiro" type="number" placeholder="Qtd de banheiros">
+
+                <input id="vagaGaragem" type="number" placeholder="Qtd vagas na garagem"> <br>
+
+       
+                <label id="opcao5">
+                    Possui dois pavimentos: <br>
+                    <select id="opcao4" name="listaOpcoes">
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </label> <br> <br>
+
+
+
+
+
+              
+                
+                
+                    <label id="opcao4">
+                        A casa tem piscina: <br>
+                        <select id="opcao3" name="listaOpcoes">
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                        </select>
+                    </label> <br> <br>
+
+
+
+
+                <button type="submit">Calcular</button> <br><br>
+
+                <p>O valor total da casa é</p>
 
 
 
@@ -120,6 +148,10 @@
 
 
             </form>
+
+
+            <form>
+
         </div>
     </section>
     <script src="index.js"></script>

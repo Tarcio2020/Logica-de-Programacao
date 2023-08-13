@@ -143,3 +143,69 @@ calculaConsumo.addEventListener('submit', function(e) {
 
 
 
+const formValorCasa = document.getElementById('formValorCasa');
+
+formValorCasa.addEventListener('submit', function(e) {
+    e.preventDefault()
+
+    CalculaValorCasa()
+    function CalculaValorCasa() {
+        const areaConstruida = document.getElementById('areaConstruida').value;
+        const Quartos = document.getElementById('Quartos').value;
+        const suite = document.getElementById('suite').value;
+        const banheiro = document.getElementById('banheiro').value;
+        const vagaGaragem = document.getElementById('vagaGaragem').value;
+
+        let converteareaConstruida = parseFloat(areaConstruida)
+        let converteQuartos = parseFloat(Quartos)
+        let converteSuite = parseFloat(suite)
+        let converteBanheiro = parseFloat(banheiro)
+        let converteVagaGaragem = parseFloat(vagaGaragem)
+
+        
+        const precoDoMetro = converteareaConstruida * 400;
+        const addQuarto = converteQuartos * 1000;
+        const addSuite = converteSuite * 1250;
+        const addBanheiro = converteBanheiro * 500;
+        const addVagaGaragem = converteVagaGaragem * 500
+        
+        const valorDaCasa = precoDoMetro + addQuarto + addSuite + addBanheiro + addVagaGaragem;
+        
+                console.log(precoDoMetro)
+                console.log(addQuarto)
+                console.log(addSuite)
+                console.log(addBanheiro)
+                console.log(addVagaGaragem)
+
+                console.log(valorDaCasa)
+
+        
+        
+                
+                
+                
+                
+                
+                
+                
+                //validação da piscina
+                const OpcaoNao = document.getElementById('opcao3').value;
+                const Sim = 'sim';
+                
+                if (OpcaoNao === Sim) {
+                const addPscina = valorDaCasa + 2000;
+                console.log(addPscina)
+                
+                } else {
+                    const devalorizaPscina = valorDaCasa - 1000;
+                    console.log(devalorizaPscina)
+                }
+       
+
+
+    }
+
+
+
+
+})
