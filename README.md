@@ -1,4 +1,4 @@
-# Logica-de-
+# Lógica-de-Programação
 
 ### Exercícios
 
