@@ -108,10 +108,8 @@ public class Main {
     System.out.println("Exercício 4");
     System.out.println("Digite quantos KMs foram rodados.");
     
-
-    
     double quilometragemRodada;
-        quilometragemRodada = sc.nextDouble();
+    quilometragemRodada = sc.nextDouble();
         
     double valorDaGasolina = 5.29;    
     double LitrosDeCombustivel = quilometragemRodada / 12;
@@ -140,6 +138,8 @@ Crie um algoritmo que, dada os dados de entradas necessários, realize o calculo
 *******************************************************************************/
     
     double metrosConstruidos, quartoSemSuite, quartoComSuite, banheiros, vagasNaGaragem;
+    String pavimentos;
+    String piscina;
 
     System.out.println("Desafio Final");
     System.out.println("Digite a qtd de metros quadrados construídos");
@@ -152,21 +152,74 @@ Crie um algoritmo que, dada os dados de entradas necessários, realize o calculo
     banheiros = sc.nextDouble();
     System.out.println("Digite a qtd vagas na garagem");
     vagasNaGaragem = sc.nextDouble();
-    
+    System.out.println("A casa possui dois pavimentos? Digite (y) para sim ou (n) para não");
+    pavimentos = sc.next();
+    System.out.println("A casa possui piscina? Digite (y) para sim ou (n) para não");
+    piscina = sc.next();
+
     double valorMetrosConstruidos = metrosConstruidos * 400;
     double valorQuartoSemSuite = quartoSemSuite * 1000;
     double valorQuartoComSuite = quartoComSuite * 1250;
     double banheiro = banheiros * 500;
     double valorVagasNaGaragem = vagasNaGaragem * 500;
     
-    
     double somarTudo = valorMetrosConstruidos + valorQuartoSemSuite + valorQuartoComSuite + banheiro + valorVagasNaGaragem;
-    
     System.out.println(somarTudo);
+    System.out.println(pavimentos);
 
 
+
+
+    String compararPavimentoSim = "y";
+    String compararPavimentoNao = "n";
+
+    if (pavimentos.equals(compararPavimentoSim)) {
+        System.out.println("++++ 20000");
+        double addValorPavimento = somarTudo + 20000;
+        double addValorPavimentos = somarTudo + 20000;
+
+        System.out.println(addValorPavimento);
+        
+        
+        
+        if (piscina.equals(compararPavimentoSim)) {
+            double addPiscina = addValorPavimento + 2000;
+            System.out.println(addPiscina);
+            
+        } else if (piscina.equals(compararPavimentoNao)) {
+            double desvalorizaPiscina = addValorPavimento - 1000;
+
+            System.out.println(desvalorizaPiscina);
+            
+        } else {
+             System.out.println("Error");
+        }
+        
+                
+    } else if (pavimentos.equals(compararPavimentoNao)) {
+        System.out.println(somarTudo);
+        
+        
+      
+        if (piscina.equals(compararPavimentoSim)) {
+            double addPiscinaSemPavimento = somarTudo + 2000;
+            System.out.println(addPiscinaSemPavimento);
+            
+        } else if (piscina.equals(compararPavimentoNao)) {
+            double desvalorizaPiscinaSemPavimento = somarTudo - 1000;
+
+            System.out.println(desvalorizaPiscinaSemPavimento);
+            
+        } else {
+             System.out.println("Error");
+        }
+        } else {
+            System.out.println("Você digitou errado");
+            
+        }
+        
     
-
+        
 	}
 
 }
