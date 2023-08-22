@@ -1,32 +1,19 @@
+const formularioAluno = document.getElementById('formularioAluno');
+const formularioArea = document.getElementById('formArea');
+const calcIMC = document.getElementById('imc')
+const calculaConsumo = document.getElementById('calculaConsumo');
+const formValorCasa = document.getElementById('formValorCasa');
 
-const formulario = document.getElementById('formularioAluno');
-
-formulario.addEventListener('submit', function(e) {
+formularioAluno.addEventListener('submit', function(e) {
     e.preventDefault();
     validation();
 
     function validation() {
-        
-        const provaA = document.getElementById('provaUm').value;
-        const provaB = document.getElementById('provaDois').value;
-        const provaC = document.getElementById('provaTres').value;
-        const provaD = document.getElementById('provaQuatro').value;
-        const converteA = parseInt(provaA);
-        const converteB = parseInt(provaB);
-        const converteC = parseInt(provaC);
-        const converteD = parseInt(provaD);
-        
-        const soma = converteA+converteB+converteC+converteD;
-        const media = soma / 4;
-
-        console.log(typeof(converteA))
-        console.log(typeof(converteB))
-
-        console.log(typeof(converteC))
-        console.log(typeof(converteD))
-        console.log(soma)
-        console.log(media)
-
+        const provaUm = parseInt(document.getElementById('provaUm').value);
+        const provaDois = parseInt(document.getElementById('provaDois').value);
+        const provaTres = parseInt(document.getElementById('provaTres').value);
+        const provaQuatro = parseInt(document.getElementById('provaQuatro').value);
+        const media = provaUm / 4 + provaDois / 4 + provaTres / 4 + provaQuatro / 4;
         if(media>= 7) {
             const aprovado = document.getElementById('aprovado').style.display = 'block';
             console.log(aprovado)
@@ -34,31 +21,24 @@ formulario.addEventListener('submit', function(e) {
             const reprovado = document.getElementById('reprovado').style.display = 'block';
             console.log(reprovado)
         }
-
     }
 })
-
-
-const formularioArea = document.getElementById('formArea');
+//Exercícios 2
     formularioArea.addEventListener('submit',function(e) {
-
     e.preventDefault();
     CalculaArea();
-
     function CalculaArea() {
         const lado = document.getElementById('quadrado').value
         const ladoInt = parseInt(lado);
         const area = ladoInt * ladoInt;
         const printResultadoAreaQuadrado = `${area} metros quadrados`
-        console.log(area)
-        const printResultadoArea =document.getElementById('areaResultado')
+        const printResultadoArea = document.getElementById('areaResultado').innerHTML = `${area} metros quadrados`
         printResultadoArea.innerHTML = printResultadoAreaQuadrado
     }
 } )
 
 
 
-const calcIMC = document.getElementById('imc')
 calcIMC.addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -92,8 +72,6 @@ calcIMC.addEventListener('submit', function(e) {
         const msgObesidade2 = 'Obesidade Grau II';
         const msgObesidade3 = 'Obesidade Grau III';
 
-
-
         if (y < 18.5) {
             classsificacaoNaTela.innerHTML = msgPesoBaixo;
             console.log("Peso baixo")
@@ -116,7 +94,6 @@ calcIMC.addEventListener('submit', function(e) {
 }
 })
 
-const calculaConsumo = document.getElementById('calculaConsumo');
 calculaConsumo.addEventListener('submit', function(e) {
     e.preventDefault();
     calculadoraDeConsumo()
@@ -143,7 +120,6 @@ calculaConsumo.addEventListener('submit', function(e) {
 
 
 
-const formValorCasa = document.getElementById('formValorCasa');
 
 formValorCasa.addEventListener('submit', function(e) {
     e.preventDefault()

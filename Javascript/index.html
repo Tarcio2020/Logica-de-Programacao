@@ -13,22 +13,17 @@
         </p>
         <div>
             <form id="formularioAluno">
-                <input id="nome" type="text" placeholder="Nome do Aluno">
-    
-                <input required id="provaUm" type="number" placeholder="Prova 1">
-                <input required id="provaDois" type="number" placeholder="Prova 2">
-                <input required id="provaTres" type="number" placeholder="Prova 3">
-                <input required id="provaQuatro" type="number" placeholder="Prova 4"> 
-    
+                <input class="input-nota" id="nome" type="text" placeholder="Nome do Aluno">
+                <input class="input-nota" required id="provaUm" type="number" min="0" max="10" placeholder="Prova 1">
+                <input class="input-nota" required id="provaDois" type="number" min="0" max="10" placeholder="Prova 2">
+                <input class="input-nota" required id="provaTres" type="number" min="0" max="10" placeholder="Prova 3">
+                <input class="input-nota" required id="provaQuatro" type="number" min="0" max="10" placeholder="Prova 4"> 
                 <button type="submit">calcular</button>   
-    
                 <p id="aprovado">Aluno aprovado!!!</p>
                 <p id="reprovado">Aluno reprovado</p>
             </form>
         </div>
     </section>
-
-
     <section>
         <p>
             *Exercício 2:* Crie um algoritmo que realize o calculo de da área de um quadrado.
@@ -39,11 +34,9 @@
                 <input id="quadrado" type="number" placeholder="Digite a medida em metros">
                 <p id="areaResultado"><b>resultado </b>metros quadrados</p>
                 <button type="submit">Calcular</button>
-    
             </form>
         </div>
     </section>
-
     <section>
         <div>
             <p>
@@ -85,20 +78,16 @@
     </section>
     <section>
         <p>
-
-    *Desafio:* Um gerente de uma imobiliária deseja criar um sistema para calcular o preço de um casa de acordo com suas especificações. <br>
-
-    Dado as seguintes informações: <br>
-
-        - Preço do metro quadrado construído na região é de R$400 <br>
-        - Para cada quarto, adicione R$1000,00 <br>
-            - Se for uma suíte acrescente mais R$250,00 <br>
-        - Para cada banheiro, adicione R$500,00 <br>
-        - Caso a case possua 2 pavimentos, adicione R$ 20.000,00 <br>
-        - Para cada espaço de garagem na casa, adiciona R$500,00 <br>
-        - Se a casa possuir piscina, adicione R$2.000,00, caso contrário é desvalorizada em R$ 1000,00 <br>
-
-    Crie um algoritmo que, dada os dados de entradas necessários, realize o calculo do valor total da casa.
+            *Desafio:* Um gerente de uma imobiliária deseja criar um sistema para calcular o preço de um casa de acordo com suas especificações. <br>
+            Dado as seguintes informações: <br>
+                - Preço do metro quadrado construído na região é de R$400 <br>
+                - Para cada quarto, adicione R$1000,00 <br>
+                    - Se for uma suíte acrescente mais R$250,00 <br>
+                - Para cada banheiro, adicione R$500,00 <br>
+                - Caso a case possua 2 pavimentos, adicione R$ 20.000,00 <br>
+                - Para cada espaço de garagem na casa, adiciona R$500,00 <br>
+                - Se a casa possuir piscina, adicione R$2.000,00, caso contrário é desvalorizada em R$ 1000,00 <br>
+            Crie um algoritmo que, dada os dados de entradas necessários, realize o calculo do valor total da casa.
         </p>
         <div>
             <form id="formValorCasa">
@@ -117,14 +106,6 @@
                         <option value="nao">Não</option>
                     </select>
                 </label> <br> <br>
-
-
-
-
-
-              
-                
-                
                     <label id="opcao4">
                         A casa tem piscina: <br>
                         <select id="opcao3" name="listaOpcoes">
@@ -132,26 +113,8 @@
                             <option value="nao">Não</option>
                         </select>
                     </label> <br> <br>
-
-
-
-
                 <button type="submit">Calcular</button> <br><br>
-
                 <p id="msgValorCasa">O valor total da casa é</p>
-
-
-
-
-
-
-
-
-            </form>
-
-
-            <form>
-
         </div>
     </section>
     <script src="index.js"></script>
