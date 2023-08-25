@@ -1,131 +1,87 @@
-const formularioAluno = document.getElementById('formularioAluno');
-const formularioArea = document.getElementById('formArea');
-const calcIMC = document.getElementById('imc')
-const calculaConsumo = document.getElementById('calculaConsumo');
-const formValorCasa = document.getElementById('formValorCasa');
+function IdsHtmlSelections(id) {
+    return document.getElementById(id).value;
+}
 
-formularioAluno.addEventListener('submit', function(e) {
+const forms = document.getElementById('formularioAluno');
+forms.addEventListener('submit', function(e) {
     e.preventDefault();
     validation();
-
+    
     function validation() {
-        const provaUm = parseInt(document.getElementById('provaUm').value);
-        const provaDois = parseInt(document.getElementById('provaDois').value);
-        const provaTres = parseInt(document.getElementById('provaTres').value);
-        const provaQuatro = parseInt(document.getElementById('provaQuatro').value);
-        const media = provaUm / 4 + provaDois / 4 + provaTres / 4 + provaQuatro / 4;
-        if(media>= 7) {
+        const assessmentOne = parseInt(IdsHtmlSelections("assessmentOne"));
+        const assessmentTwo = parseInt(IdsHtmlSelections("assessmentTwo")); 
+        const assessmentThree = parseInt(IdsHtmlSelections("assessmentThree"));
+        const assessmentFour = parseInt(IdsHtmlSelections("assessmentFour"));
+        const average = assessmentOne / 4 + assessmentTwo / 4 + assessmentThree / 4 + assessmentFour / 4;
+        
+        if(average >= 7) {
             const aprovado = document.getElementById('aprovado').style.display = 'block';
             console.log(aprovado)
         } else {
             const reprovado = document.getElementById('reprovado').style.display = 'block';
             console.log(reprovado)
-        }
+        }    
     }
 })
-//Exercícios 2
-    formularioArea.addEventListener('submit',function(e) {
+
+const formSquareArea = document.getElementById('formSquareArea');
+formSquareArea.addEventListener('submit', function(e) {
     e.preventDefault();
-    CalculaArea();
-    function CalculaArea() {
-        const lado = document.getElementById('quadrado').value
-        const ladoInt = parseInt(lado);
-        const area = ladoInt * ladoInt;
-        const printResultadoAreaQuadrado = `${area} metros quadrados`
-        const printResultadoArea = document.getElementById('areaResultado').innerHTML = `${area} metros quadrados`
-        printResultadoArea.innerHTML = printResultadoAreaQuadrado
+    calculateAreaOfSquare();
+
+    function calculateAreaOfSquare() {
+        const sideOfSquare = parseFloat(IdsHtmlSelections('sideOfSquare'));
+        const resultArea = sideOfSquare ** 2;
+        document.getElementById("messageArea").innerHTML = `${resultArea} metros quadrados`;
     }
-} )
+})
 
-
-
-calcIMC.addEventListener('submit', function(e) {
+const formBmi = document.getElementById('formBmi')
+formBmi.addEventListener('submit', function(e) {
     e.preventDefault();
+    bmiCalculation();
 
-    CalculoImc();
-    function CalculoImc() {
-        const alturas = document.getElementById('altura').value;
-        const pesos = document.getElementById('peso').value;
-        let alturaFloat = parseFloat(alturas)
-        let pesoFloat = parseFloat(pesos)
+    function bmiCalculation() {
+        const height = parseFloat(IdsHtmlSelections('height'));
+        const bodyMass = parseFloat(IdsHtmlSelections('bodyMass'));
+        const bmiResult = bodyMass / height ** 2;
+        const arrayMsgTypeBodyMass = ['Peso baixo', 'Peso normal ou adequado', 'Sobrepeso','Obesidade Grau I', 'Obesidade Grau II', 'Obesidade Grau III'];
+        document.getElementById("bmiMessage").innerHTML = `Seu IMC é ${bmiResult}`;
 
-        const alturaAoQuadrado = alturaFloat * alturaFloat;
-        const resultadoDOIMC = pesoFloat/alturaAoQuadrado;
-        const printIMCNaTela = `Seu IMC é ${resultadoDOIMC}`
-        const IMCnatela =document.getElementById('valorImc')
-        IMCnatela.innerHTML = printIMCNaTela
-
-
-        console.log(alturaFloat)
-        console.log(pesoFloat)
-        console.log(alturaAoQuadrado)
-
-        console.log(resultadoDOIMC)
-
-        const y = resultadoDOIMC
-
-        const classsificacaoNaTela = document.getElementById('classificacao')
-        const msgPesoBaixo = 'Peso baixo';
-        const msgPesonormal = 'Peso normal ou adequado';
-        const msgSobrepeso = 'Sobrepeso';
-        const msgObesidade1 = 'Obesidade Grau I';
-        const msgObesidade2 = 'Obesidade Grau II';
-        const msgObesidade3 = 'Obesidade Grau III';
-
-        if (y < 18.5) {
-            classsificacaoNaTela.innerHTML = msgPesoBaixo;
-            console.log("Peso baixo")
-        } else if (y > 18.5 && y < 24.9) {
-            classsificacaoNaTela.innerHTML = msgPesonormal;
-            console.log("Peso normal ou adequado")
-        } else if (y > 24.9 && y < 29.9) {
-            classsificacaoNaTela.innerHTML = msgSobrepeso;
-            console.log("Sobrepeso")
-        } else if (y > 30 && y < 34.9) {
-            classsificacaoNaTela.innerHTML = msgObesidade1;
-            console.log("Obesidade Grau I")
-        } else if (y > 35 && y < 39.9) {
-            classsificacaoNaTela.innerHTML = msgObesidade2;
-            console.log("Obesidade Grau II")        
+        if (bmiResult < 18.5) {
+            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[0];
+        } else if (bmiResult > 18.5 && bmiResult < 24.9) {
+            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[1];
+        } else if (bmiResult > 24.9 && bmiResult < 29.9) {
+            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[2];
+        } else if (bmiResult > 30 && bmiResult < 34.9) {
+            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[3];
+        } else if (bmiResult > 35 && bmiResult < 39.9) {
+            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[4];
         }else {
-            classsificacaoNaTela.innerHTML = msgObesidade3;
-            console.log("Obesidade Grau III")
+            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[5];
         }
-}
-})
-
-calculaConsumo.addEventListener('submit', function(e) {
-    e.preventDefault();
-    calculadoraDeConsumo()
-
-    function calculadoraDeConsumo() {
-        const quantidadeDeKm = document.getElementById('quilometragem').value;
-        let convertKmEmFloat = parseFloat(quantidadeDeKm);
-        const qtdDeGasolinaGasta = convertKmEmFloat /12;
-        const valorGastoComCombustivel = qtdDeGasolinaGasta * 5.29
-
-        const alteraMsg = document.getElementById('msgCombustivel');
-        const printTelaValorGasto =  `O valor gasto com combustível foi de R$ ${valorGastoComCombustivel} reais`
-        
-        alteraMsg.innerHTML = printTelaValorGasto;
-
-        console.log(convertKmEmFloat)
-        console.log(qtdDeGasolinaGasta)
-
-
-
     }
-    
 })
 
+const formGasolineConsumption = document.getElementById('formGasolineConsumption');
+formGasolineConsumption.addEventListener('submit', function(e) {
+    e.preventDefault();
+    consumptionCalculator();
 
+    function consumptionCalculator() {
+        const kilometersTraveled = parseFloat(IdsHtmlSelections('kilometersTraveled'));
+        const priceofGasoline = (kilometersTraveled / 12) * 5.29;
+        document.getElementById('msgCalculatorGasoline').innerHTML = `O valor gasto com combustível foi de R$ ${priceofGasoline} reais`
+    }
+})
 
-
-formValorCasa.addEventListener('submit', function(e) {
+const housePriceForm = document.getElementById('housePriceForm');
+housePriceForm.addEventListener('submit', function(e) {
     e.preventDefault()
+    calculatorHousePrice()
 
-    CalculaValorCasa()
-    function CalculaValorCasa() {
+    function calculatorHousePrice() {
         const areaConstruida = document.getElementById('areaConstruida').value;
         const Quartos = document.getElementById('Quartos').value;
         const suite = document.getElementById('suite').value;
@@ -194,5 +150,6 @@ formValorCasa.addEventListener('submit', function(e) {
                         alteraMsgValorCasa.innerHTML = msgNaTelaValorDaCasa;
                     }
                 }
-    }
+            }
+            return true;
 })

@@ -13,11 +13,11 @@
         </p>
         <div>
             <form id="formularioAluno">
-                <input class="input-nota" id="nome" type="text" placeholder="Nome do Aluno">
-                <input class="input-nota" required id="provaUm" type="number" min="0" max="10" placeholder="Prova 1">
-                <input class="input-nota" required id="provaDois" type="number" min="0" max="10" placeholder="Prova 2">
-                <input class="input-nota" required id="provaTres" type="number" min="0" max="10" placeholder="Prova 3">
-                <input class="input-nota" required id="provaQuatro" type="number" min="0" max="10" placeholder="Prova 4"> 
+                <input id="nome" type="text" placeholder="Nome do Aluno">
+                <input min="0" max="10" required id="assessmentOne" type="number" placeholder="Prova 1">
+                <input min="0" max="10" required id="assessmentTwo" type="number" placeholder="Prova 2">
+                <input min="0" max="10" required id="assessmentThree" type="number" placeholder="Prova 3">
+                <input min="0" max="10" required id="assessmentFour" type="number" placeholder="Prova 4"> 
                 <button type="submit">calcular</button>   
                 <p id="aprovado">Aluno aprovado!!!</p>
                 <p id="reprovado">Aluno reprovado</p>
@@ -29,10 +29,9 @@
             *Exercício 2:* Crie um algoritmo que realize o calculo de da área de um quadrado.
         </p>
         <div>
-            <form id="formArea">
-            
-                <input id="quadrado" type="number" placeholder="Digite a medida em metros">
-                <p id="areaResultado"><b>resultado </b>metros quadrados</p>
+            <form id="formSquareArea"></form>
+                <input id="sideOfSquare" type="number" required placeholder="Digite a medida em metros">
+                <p id="messageArea">resultado</p>
                 <button type="submit">Calcular</button>
             </form>
         </div>
@@ -41,7 +40,6 @@
         <div>
             <p>
                 *Exercício 3:* Represente um algoritmo para realizar o calculo do IMC e informe ao usuário o resultado com base na seguinte classificação:
-
             </p>
             <p>
                 - Menos de 18,5: Peso baixo <br>
@@ -53,11 +51,11 @@
             </p>
         </div>
         <div>
-            <form id="imc">
-                <input id="altura" type="float" placeholder="Digite a altura usando ponto">
-                <input id="peso" type="float" placeholder="Digite o peso usando ponto">
+            <form id="formBmi">
+                <input id="height" type="float" placeholder="Digite a altura usando ponto">
+                <input id="bodyMass" type="float" placeholder="Digite o peso usando ponto">
                 <button type="submit">Calcular</button>
-                <p id="valorImc">Seu <b>IMC</b> é de:</p>
+                <p id="bmiMessage">Seu <b>IMC</b> é de:</p>
                 <p id="classificacao">Sua classificação é de</p>
             </form>
         </div>
@@ -67,10 +65,10 @@
             *Exercício 4:* Crie a representação de um algoritmo para realizar o consumo de combustível de uma frota de uma empresa de acordo com a a quilometragem rodada de um determinado dia. Dado que todos os carros utilizam gasolina, o preço cotado é de R$5,29 e os carros tem um consumo médio de 12km/L.
         </p>
         <div>
-            <form id="calculaConsumo">
-                <input id="quilometragem" type="number" placeholder="Digite a qtd de KM rodados">
+            <form id="formGasolineConsumption">
+                <input id="kilometersTraveled" type="number" placeholder="Digite a qtd de KM rodados">
                 <button type="submit">Calcular</button>
-                <p id="msgCombustivel">
+                <p id="msgCalculatorGasoline">
                     O valor gasto com combustível foi de R$
                 </p>
             </form>
@@ -78,19 +76,23 @@
     </section>
     <section>
         <p>
-            *Desafio:* Um gerente de uma imobiliária deseja criar um sistema para calcular o preço de um casa de acordo com suas especificações. <br>
-            Dado as seguintes informações: <br>
-                - Preço do metro quadrado construído na região é de R$400 <br>
-                - Para cada quarto, adicione R$1000,00 <br>
-                    - Se for uma suíte acrescente mais R$250,00 <br>
-                - Para cada banheiro, adicione R$500,00 <br>
-                - Caso a case possua 2 pavimentos, adicione R$ 20.000,00 <br>
-                - Para cada espaço de garagem na casa, adiciona R$500,00 <br>
-                - Se a casa possuir piscina, adicione R$2.000,00, caso contrário é desvalorizada em R$ 1000,00 <br>
-            Crie um algoritmo que, dada os dados de entradas necessários, realize o calculo do valor total da casa.
+
+    *Desafio:* Um gerente de uma imobiliária deseja criar um sistema para calcular o preço de um casa de acordo com suas especificações. <br>
+
+    Dado as seguintes informações: <br>
+
+        - Preço do metro quadrado construído na região é de R$400 <br>
+        - Para cada quarto, adicione R$1000,00 <br>
+            - Se for uma suíte acrescente mais R$250,00 <br>
+        - Para cada banheiro, adicione R$500,00 <br>
+        - Caso a case possua 2 pavimentos, adicione R$ 20.000,00 <br>
+        - Para cada espaço de garagem na casa, adiciona R$500,00 <br>
+        - Se a casa possuir piscina, adicione R$2.000,00, caso contrário é desvalorizada em R$ 1000,00 <br>
+
+    Crie um algoritmo que, dada os dados de entradas necessários, realize o calculo do valor total da casa.
         </p>
         <div>
-            <form id="formValorCasa">
+            <form id="housePriceForm">
                 <input id="areaConstruida" type="number" placeholder="Metros quadrados construídos">
                 <input id="Quartos" type="number" placeholder="Qtd de quartos Sem suíte">
                 <input id="suite" type="number" placeholder="Qtd de quartos Com suíte">
@@ -106,6 +108,14 @@
                         <option value="nao">Não</option>
                     </select>
                 </label> <br> <br>
+
+
+
+
+
+              
+                
+                
                     <label id="opcao4">
                         A casa tem piscina: <br>
                         <select id="opcao3" name="listaOpcoes">
@@ -113,8 +123,26 @@
                             <option value="nao">Não</option>
                         </select>
                     </label> <br> <br>
+
+
+
+
                 <button type="submit">Calcular</button> <br><br>
+
                 <p id="msgValorCasa">O valor total da casa é</p>
+
+
+
+
+
+
+
+
+            </form>
+
+
+            <form>
+
         </div>
     </section>
     <script src="index.js"></script>
