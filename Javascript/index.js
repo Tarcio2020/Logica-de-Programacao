@@ -2,8 +2,8 @@ function IdsHtmlSelections(id) {
     return document.getElementById(id).value;
 }
 
-const forms = document.getElementById('formularioAluno');
-forms.addEventListener('submit', function(e) {
+const studentForm = document.getElementById('studentForm');
+studentForm.addEventListener('submit', function(e) {
     e.preventDefault();
     validation();
     
@@ -12,7 +12,7 @@ forms.addEventListener('submit', function(e) {
         const assessmentTwo = parseInt(IdsHtmlSelections("assessmentTwo")); 
         const assessmentThree = parseInt(IdsHtmlSelections("assessmentThree"));
         const assessmentFour = parseInt(IdsHtmlSelections("assessmentFour"));
-        const average = assessmentOne / 4 + assessmentTwo / 4 + assessmentThree / 4 + assessmentFour / 4;
+        let average = (assessmentOne / 4 + assessmentTwo / 4 + assessmentThree / 4 + assessmentFour / 4);
         
         if(average >= 7) {
             const aprovado = document.getElementById('aprovado').style.display = 'block';
@@ -82,34 +82,21 @@ housePriceForm.addEventListener('submit', function(e) {
     calculatorHousePrice()
 
     function calculatorHousePrice() {
-        const areaConstruida = document.getElementById('areaConstruida').value;
-        const Quartos = document.getElementById('Quartos').value;
-        const suite = document.getElementById('suite').value;
-        const banheiro = document.getElementById('banheiro').value;
-        const vagaGaragem = document.getElementById('vagaGaragem').value;
 
-        let converteareaConstruida = parseFloat(areaConstruida)
-        let converteQuartos = parseFloat(Quartos)
-        let converteSuite = parseFloat(suite)
-        let converteBanheiro = parseFloat(banheiro)
-        let converteVagaGaragem = parseFloat(vagaGaragem)
 
-        
-        const precoDoMetro = converteareaConstruida * 400;
-        const addQuarto = converteQuartos * 1000;
-        const addSuite = converteSuite * 1250;
-        const addBanheiro = converteBanheiro * 500;
-        const addVagaGaragem = converteVagaGaragem * 500
-        
-        const valorDaCasa = precoDoMetro + addQuarto + addSuite + addBanheiro + addVagaGaragem;
-        
-                console.log(precoDoMetro)
-                console.log(addQuarto)
-                console.log(addSuite)
-                console.log(addBanheiro)
-                console.log(addVagaGaragem)
 
-                console.log(valorDaCasa)
+        const constructedArea = parseFloat(IdsHtmlSelections('constructedArea')) * 500;
+        const quarters = parseFloat(IdsHtmlSelections('quarters'));
+        const suite = parseFloat(IdsHtmlSelections('suite'));
+        const bathroom = parseFloat(IdsHtmlSelections('bathroom'));
+        const parkingSpaces = parseFloat(IdsHtmlSelections('parkingSpaces'));
+        const priceConstructedArea = constructedArea * 400;
+        const addQuarto = quarters * 1000;
+        const addSuite = suite * 1250;
+        const addbathroom = bathroom * 500;
+        const addparkingSpaces = parkingSpaces * 500
+        const valorDaCasa = priceConstructedArea + addQuarto + addSuite + addbathroom + addparkingSpaces;
+        
                 
                 //validação da piscina
                 const OpcaoNao = document.getElementById('opcao3').value;
