@@ -5,53 +5,33 @@
 
 *******************************************************************************/
 import java.util.Scanner;
-
 public class Main {
-
 	public static void main(String[] args) {
-	
-	System.out.println("Ecercício 1");
-	System.out.println("Digite as notas do aluno:");
-
-	Scanner sc = new Scanner(System.in);
-	int prova1,prova2,prova3,prova4;
-
-	prova1 = sc.nextInt();
-	prova2 = sc.nextInt();
-	prova3 = sc.nextInt();
-	prova4 = sc.nextInt();
-    
-    int soma = prova1 + prova2 + prova3 + prova4;
-    int media = soma/4;
-	
-	
-
-	System.out.println("A média do aluno foi " + media);
-
-     if (media >= 7) {
-            System.out.println("Aluno Aprovado!");
-        } else {
-            System.out.println("reprovado!.");
-        }
-        
-        
+    	System.out.println("Ecercício 1");
+    	System.out.println("Digite as notas do aluno:");
+    	Scanner sc = new Scanner(System.in);
+    	int assessmentOne, assessmentTwo, assessmentThree, assessmentFour;
+    	assessmentOne = sc.nextInt();
+    	assessmentTwo = sc.nextInt();
+    	assessmentThree = sc.nextInt();
+    	assessmentFour = sc.nextInt();
+        int average = (assessmentOne + assessmentTwo + assessmentThree + assessmentFour) / 4;
+    	System.out.println("A média do aluno foi " + average);
+            if (average >= 7) {
+                System.out.println("Aluno Aprovado!");
+            } else {
+                System.out.println("reprovado!.");
+            }
  /******************************************************************************
 
 *Exercício 2:* Crie um algoritmo que realize o calculo de da área de um quadrado.
 
-
 *******************************************************************************/
-    
     System.out.println("Ecercício 2");
     System.out.println("Digite um lado do Quadrado");
-
-    int ladoDoQuadrado;
-	ladoDoQuadrado = sc.nextInt();
-	
-	int areaDoQuadrado = ladoDoQuadrado*ladoDoQuadrado;
-
-	System.out.println("A área do quadrado é, "+ areaDoQuadrado +" metros quadrados");
-	
+	double squareSide = sc.nextInt();
+    double resultado = Math.pow(squareSide, 2);
+	System.out.println("A área do quadrado é, "+ resultado +" metros quadrados");
  /******************************************************************************
 
 *Exercício 3:* Represente um algoritmo para realizar o calculo do IMC e informe ao usuário o resultado com base na seguinte classificação:
@@ -66,12 +46,14 @@ public class Main {
 *******************************************************************************/
     System.out.println("Exercício 3");
     System.out.println("calculadora de IMC");
-    
     double altura, peso;
     System.out.println("Digite seu altura");
     altura = sc.nextDouble();
     System.out.println("Digite sua massa");
     peso = sc.nextDouble();
+    
+    
+    
     
     double alturaAoQuadrado = altura * altura;
     double CalculoDoIMC = peso / alturaAoQuadrado;
@@ -93,8 +75,6 @@ public class Main {
         } else {
             System.out.println("Obsidade grau III");
         }
-    
-
  /******************************************************************************
 
 *Exercício 4:* Crie a representação de um algoritmo para realizar o consumo de combustível 
