@@ -10,35 +10,33 @@ body {
     margin: 0 auto;
     background-color: beige;
 }
+
 section {
     margin: 30px 0;
 }
 
-form{
-   margin: 0 auto;
+form {
+    margin: 0 auto;
     width: 200px;
 }
 
 input {
     margin: 3px 0;
 }
+
 button {
     background-color: rgb(11, 192, 41);
     border: none;
     border-radius: 8px;
     width: 80px;
     color: aliceblue;
-    
+
 }
 
 div {
     margin: 20px 0;
 }
 
-#aprovado{
-    display: none;
-}
-
-#reprovado{
-    display: none;
+.lesson {
+    width: 180px;
 }

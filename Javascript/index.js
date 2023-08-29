@@ -3,29 +3,28 @@ function IdsHtmlSelections(id) {
 }
 
 const studentForm = document.getElementById('studentForm');
-studentForm.addEventListener('submit', function(e) {
+studentForm.addEventListener('submit', function (e) {
     e.preventDefault();
     validation();
-    
+
     function validation() {
+        const name = IdsHtmlSelections("name");
         const assessmentOne = parseInt(IdsHtmlSelections("assessmentOne"));
-        const assessmentTwo = parseInt(IdsHtmlSelections("assessmentTwo")); 
+        const assessmentTwo = parseInt(IdsHtmlSelections("assessmentTwo"));
         const assessmentThree = parseInt(IdsHtmlSelections("assessmentThree"));
         const assessmentFour = parseInt(IdsHtmlSelections("assessmentFour"));
         let average = (assessmentOne / 4 + assessmentTwo / 4 + assessmentThree / 4 + assessmentFour / 4);
-        
-        if(average >= 7) {
-            const aprovado = document.getElementById('aprovado').style.display = 'block';
-            console.log(aprovado)
+
+        if (average >= 7) {
+            document.getElementById('passOrFail').innerHTML = `O aluno ${name} foi aprovado!`;
         } else {
-            const reprovado = document.getElementById('reprovado').style.display = 'block';
-            console.log(reprovado)
-        }    
+            document.getElementById('passOrFail').innerHTML = `O aluno ${name} foi reprovado!`;
+        }
     }
 })
 
 const formSquareArea = document.getElementById('formSquareArea');
-formSquareArea.addEventListener('submit', function(e) {
+formSquareArea.addEventListener('submit', function (e) {
     e.preventDefault();
     calculateAreaOfSquare();
 
@@ -37,7 +36,7 @@ formSquareArea.addEventListener('submit', function(e) {
 })
 
 const formBmi = document.getElementById('formBmi')
-formBmi.addEventListener('submit', function(e) {
+formBmi.addEventListener('submit', function (e) {
     e.preventDefault();
     bmiCalculation();
 
@@ -45,27 +44,30 @@ formBmi.addEventListener('submit', function(e) {
         const height = parseFloat(IdsHtmlSelections('height'));
         const bodyMass = parseFloat(IdsHtmlSelections('bodyMass'));
         const bmiResult = bodyMass / height ** 2;
-        const arrayMsgTypeBodyMass = ['Peso baixo', 'Peso normal ou adequado', 'Sobrepeso','Obesidade Grau I', 'Obesidade Grau II', 'Obesidade Grau III'];
+        const arrayMsgTypeBodyMass = ['Peso baixo', 'Peso normal ou adequado', 'Sobrepeso', 'Obesidade Grau I', 'Obesidade Grau II', 'Obesidade Grau III'];
         document.getElementById("bmiMessage").innerHTML = `Seu IMC é ${bmiResult}`;
-
+        console.log(bmiResult)
+        function classificationBmi(indice) {
+            return document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[indice];
+        }
         if (bmiResult < 18.5) {
-            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[0];
+            classificationBmi(0);
         } else if (bmiResult > 18.5 && bmiResult < 24.9) {
-            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[1];
+            classificationBmi(1);
         } else if (bmiResult > 24.9 && bmiResult < 29.9) {
-            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[2];
+            classificationBmi(2);
         } else if (bmiResult > 30 && bmiResult < 34.9) {
-            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[3];
+            classificationBmi(3);
         } else if (bmiResult > 35 && bmiResult < 39.9) {
-            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[4];
-        }else {
-            document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[5];
+            classificationBmi(4);
+        } else {
+            classificationBmi(5);
         }
     }
 })
 
 const formGasolineConsumption = document.getElementById('formGasolineConsumption');
-formGasolineConsumption.addEventListener('submit', function(e) {
+formGasolineConsumption.addEventListener('submit', function (e) {
     e.preventDefault();
     consumptionCalculator();
 
@@ -77,93 +79,39 @@ formGasolineConsumption.addEventListener('submit', function(e) {
 })
 
 const housePriceForm = document.getElementById('housePriceForm');
-housePriceForm.addEventListener('submit', function(e) {
+housePriceForm.addEventListener('submit', function (e) {
     e.preventDefault()
     calculatorHousePrice()
 
     function calculatorHousePrice() {
-        const constructedArea = parseFloat(IdsHtmlSelections('constructedArea')) * 500;
-        const quarters = parseFloat(IdsHtmlSelections('quarters'));
-        const suite = parseFloat(IdsHtmlSelections('suite'));
-        const bathroom = parseFloat(IdsHtmlSelections('bathroom'));
-        const parkingSpaces = parseFloat(IdsHtmlSelections('parkingSpaces'));
-        const priceConstructedArea = constructedArea * 400;
-        const addquarters = quarters * 1000;
-        const addSuite = suite * 1250;
-        const addbathroom = bathroom * 500;
-        const addparkingSpaces = parkingSpaces * 500
-        const priceOfHouse = priceConstructedArea + addquarters + addSuite + addbathroom + addparkingSpaces;
+        const constructedArea = parseFloat(IdsHtmlSelections('constructedArea')) * 400;
+        const quarters = parseFloat(IdsHtmlSelections('quarters')) * 1000;
+        const suite = parseFloat(IdsHtmlSelections('suite')) * 1250;
+        const bathroom = parseFloat(IdsHtmlSelections('bathroom')) * 500;
+        const parkingSpaces = parseFloat(IdsHtmlSelections('parkingSpaces')) * 500;
+        const priceOfHouse = constructedArea + quarters + suite + bathroom + parkingSpaces;
         const optionYesOrNoFloors = IdsHtmlSelections('optionYesOrNoFloors');
         const optionYesOrNoPool = IdsHtmlSelections('optionYesOrNoPool');
-        console.log(priceOfHouse)
 
-        console.log(optionYesOrNoFloors)
-        console.log(optionYesOrNoPool)
+        function msgPrice(x, y) {
+            return document.getElementById('msgPriceHouse').innerHTML = `O valor da casa é de ${x + y}`;
+        }
 
         if (optionYesOrNoFloors === 'sim' && optionYesOrNoPool === 'sim') {
-            console.log('aumenta 22000mil')
+            msgPrice(priceOfHouse, 22000);
         }
         else if (optionYesOrNoFloors === 'sim' && optionYesOrNoPool !== 'sim') {
-            console.log('aumenta 20000mil')
+            msgPrice(priceOfHouse, 19000);
         }
         else if (optionYesOrNoFloors !== 'sim' && optionYesOrNoPool == 'sim') {
-            console.log('aumenta 2000 mil')
+            msgPrice(priceOfHouse, 2000);
         }
         else if (!optionYesOrNoFloors !== 'sim' && !optionYesOrNoPool !== 'sim') {
-            console.log('aumenta nada ')
+            msgPrice(priceOfHouse, -1000);
         } else {
-            console.log('deu erro')
+            console.log('Deu Erro')
         }
-                }
-return true;
+    }
+    return true;
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
-                if (optionYesOrNoFloors === ok) {
-
-                    const addPoolValue = priceOfHouse + 2000;
-
-                if (optionYesOrNoPool === ok){
-                    const valorFinal = addPoolValue + 20000;
-                    console.log(valorFinal)
-                    const msgNaTelapriceOfHouse = ` valor total da casa é ${valorFinal}`;
-                    const alteraMsgValorCasa = document.getElementById('msgValorCasa');
-                    alteraMsgValorCasa.innerHTML = msgNaTelapriceOfHouse;
-                } else {
-                    document.getElementById('msgValorCasa').innerHTML = ` valor total da casa é ${addPoolValue}`;
-                }
-                
-                } else {
-                    const devalorizaPscina = priceOfHouse - 1000;
-                    if (optionYesOrNoPool === ok){
-                        const valorFinal = devalorizaPscina + 20000;
-                        console.log(valorFinal)
-                        const msgNaTelapriceOfHouse = ` valor total da casa é ${valorFinal}`;
-                        const alteraMsgValorCasa = document.getElementById('msgValorCasa');
-                        alteraMsgValorCasa.innerHTML = msgNaTelapriceOfHouse;
-                    } else {
-                        const msgNaTelapriceOfHouse = ` valor total da casa é ${devalorizaPscina}`;
-                        const alteraMsgValorCasa = document.getElementById('msgValorCasa');
-                        alteraMsgValorCasa.innerHTML = msgNaTelapriceOfHouse;
-                    } */
 
