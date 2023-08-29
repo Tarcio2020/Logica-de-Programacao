@@ -88,40 +88,74 @@ housePriceForm.addEventListener('submit', function(e) {
         const bathroom = parseFloat(IdsHtmlSelections('bathroom'));
         const parkingSpaces = parseFloat(IdsHtmlSelections('parkingSpaces'));
         const priceConstructedArea = constructedArea * 400;
-        const addQuarto = quarters * 1000;
+        const addquarters = quarters * 1000;
         const addSuite = suite * 1250;
         const addbathroom = bathroom * 500;
         const addparkingSpaces = parkingSpaces * 500
-        const valorDaCasa = priceConstructedArea + addQuarto + addSuite + addbathroom + addparkingSpaces;
+        const priceOfHouse = priceConstructedArea + addquarters + addSuite + addbathroom + addparkingSpaces;
         const optionYesOrNoFloors = IdsHtmlSelections('optionYesOrNoFloors');
-        const optionYesOrNoorsPool = IdsHtmlSelections('optionYesOrNoFloorsPool');
-                
-                if (optionYesOrNoFloors === 'sim') {
-                    const addPoolValue = valorDaCasa + 2000;
-                if (optionYesOrNoFloorsPool === 'sim'){
+        const optionYesOrNoPool = IdsHtmlSelections('optionYesOrNoPool');
+        const ok = "sim";
+
+
+        console.log(optionYesOrNoFloors)
+        console.log(optionYesOrNoPool)
+
+        if (optionYesOrNoFloors === ok && optionYesOrNoPool) {
+            
+        }
+        
+
+                }
+return true;
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+                if (optionYesOrNoFloors === ok) {
+
+                    const addPoolValue = priceOfHouse + 2000;
+
+                if (optionYesOrNoPool === ok){
                     const valorFinal = addPoolValue + 20000;
                     console.log(valorFinal)
-                    const msgNaTelaValorDaCasa = ` valor total da casa é ${valorFinal}`;
+                    const msgNaTelapriceOfHouse = ` valor total da casa é ${valorFinal}`;
                     const alteraMsgValorCasa = document.getElementById('msgValorCasa');
-                    alteraMsgValorCasa.innerHTML = msgNaTelaValorDaCasa;
+                    alteraMsgValorCasa.innerHTML = msgNaTelapriceOfHouse;
                 } else {
                     document.getElementById('msgValorCasa').innerHTML = ` valor total da casa é ${addPoolValue}`;
                 }
                 
                 } else {
-                    const devalorizaPscina = valorDaCasa - 1000;
-                    if (optionYesOrNoFloorsPool === 'sim'){
+                    const devalorizaPscina = priceOfHouse - 1000;
+                    if (optionYesOrNoPool === ok){
                         const valorFinal = devalorizaPscina + 20000;
                         console.log(valorFinal)
-                        const msgNaTelaValorDaCasa = ` valor total da casa é ${valorFinal}`;
+                        const msgNaTelapriceOfHouse = ` valor total da casa é ${valorFinal}`;
                         const alteraMsgValorCasa = document.getElementById('msgValorCasa');
-                        alteraMsgValorCasa.innerHTML = msgNaTelaValorDaCasa;
+                        alteraMsgValorCasa.innerHTML = msgNaTelapriceOfHouse;
                     } else {
-                        const msgNaTelaValorDaCasa = ` valor total da casa é ${devalorizaPscina}`;
+                        const msgNaTelapriceOfHouse = ` valor total da casa é ${devalorizaPscina}`;
                         const alteraMsgValorCasa = document.getElementById('msgValorCasa');
-                        alteraMsgValorCasa.innerHTML = msgNaTelaValorDaCasa;
-                    }
-                }
-            }
-return true;
-})
+                        alteraMsgValorCasa.innerHTML = msgNaTelapriceOfHouse;
+                    } */
+
