@@ -16,11 +16,11 @@ public class Main {
             if (average >= 7) {
                 System.out.println("Aluno Aprovado!");
             } else {
-                System.out.println("reprovado!.");
+                System.out.println("Aluno reprovado!");
             }
             
- /*Exercício 2:* Crie um algoritmo que realize o calculo de da área de um quadrado.*/
- 
+/*Exercício 2:* Crie um algoritmo que realize o calculo de da área de um quadrado.*/
+
         System.out.println("Ecercício 2");
         System.out.println("Digite um lado do Quadrado");
     	double squareSide = sc.nextInt();
@@ -45,7 +45,7 @@ public class Main {
         double calculationOfBmi = bodyMass / (Math.pow(height, 2));
         System.out.println("Seu IMC é de " + calculationOfBmi);
             if (calculationOfBmi < 18.5) {
-                 System.out.println("Peso baixo");
+                System.out.println("Peso baixo");
             } else if (calculationOfBmi > 18.5 && calculationOfBmi < 24.9) {
                 System.out.println("Peso Normal");
             } else if (calculationOfBmi > 24.9 && calculationOfBmi < 29.9) {
@@ -58,7 +58,7 @@ public class Main {
                 System.out.println("Obsidade grau III");
             }
             
- /*Exercício 4:* Crie a representação de um algoritmo para realizar o consumo de combustível 
+/*Exercício 4:* Crie a representação de um algoritmo para realizar o consumo de combustível 
 * de uma frota de uma empresa de acordo com a a quilometragem rodada de um determinado dia. 
 * Dado que todos os carros utilizam gasolina, o preço cotado é de R$5,29 e os carros tem 
 * um consumo médio de 12km/L.*/
@@ -70,7 +70,7 @@ public class Main {
         double fuelCost = (kmsDriven / 12) * 5.29;
         System.out.println(fuelCost);
         
- /*Desafio:* Um gerente de uma imobiliária deseja criar um sistema para calcular o preço de um casa de acordo com suas especificações. 
+/*Desafio:* Um gerente de uma imobiliária deseja criar um sistema para calcular o preço de um casa de acordo com suas especificações. 
 Dado as seguintes informações: 
     - Preço do metro quadrado construído na região é de R$400
     - Para cada quarto, adicione R$1000,00
@@ -82,8 +82,7 @@ Dado as seguintes informações:
 Crie um algoritmo que, dada os dados de entradas necessários, realize o calculo do valor total da casa.*/
 
         double metersBuilt, room, roomWithSuite, bathroom, parkingSpaces;
-        String optionYesOrNoFloors;
-        String optionYesOrNoPool;
+        String optionYesOrNoFloors, optionYesOrNoPool;
         System.out.println("Desafio Final");
         System.out.println("Digite a qtd de metros quadrados construídos");
         metersBuilt = sc.nextDouble() * 400;
@@ -111,5 +110,5 @@ Crie um algoritmo que, dada os dados de entradas necessários, realize o calculo
             } else {
                 System.out.println("Deu Erro");
             }
-    	}
     }
+}
