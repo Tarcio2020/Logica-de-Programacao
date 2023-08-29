@@ -46,10 +46,11 @@ formBmi.addEventListener('submit', function (e) {
         const bmiResult = bodyMass / height ** 2;
         const arrayMsgTypeBodyMass = ['Peso baixo', 'Peso normal ou adequado', 'Sobrepeso', 'Obesidade Grau I', 'Obesidade Grau II', 'Obesidade Grau III'];
         document.getElementById("bmiMessage").innerHTML = `Seu IMC é ${bmiResult}`;
-        console.log(bmiResult)
+        
         function classificationBmi(indice) {
             return document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[indice];
         }
+
         if (bmiResult < 18.5) {
             classificationBmi(0);
         } else if (bmiResult > 18.5 && bmiResult < 24.9) {
