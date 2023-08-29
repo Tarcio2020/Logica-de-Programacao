@@ -95,17 +95,25 @@ housePriceForm.addEventListener('submit', function(e) {
         const priceOfHouse = priceConstructedArea + addquarters + addSuite + addbathroom + addparkingSpaces;
         const optionYesOrNoFloors = IdsHtmlSelections('optionYesOrNoFloors');
         const optionYesOrNoPool = IdsHtmlSelections('optionYesOrNoPool');
-        const ok = "sim";
-
+        console.log(priceOfHouse)
 
         console.log(optionYesOrNoFloors)
         console.log(optionYesOrNoPool)
 
-        if (optionYesOrNoFloors === ok && optionYesOrNoPool) {
-            
+        if (optionYesOrNoFloors === 'sim' && optionYesOrNoPool === 'sim') {
+            console.log('aumenta 22000mil')
         }
-        
-
+        else if (optionYesOrNoFloors === 'sim' && optionYesOrNoPool !== 'sim') {
+            console.log('aumenta 20000mil')
+        }
+        else if (optionYesOrNoFloors !== 'sim' && optionYesOrNoPool == 'sim') {
+            console.log('aumenta 2000 mil')
+        }
+        else if (!optionYesOrNoFloors !== 'sim' && !optionYesOrNoPool !== 'sim') {
+            console.log('aumenta nada ')
+        } else {
+            console.log('deu erro')
+        }
                 }
 return true;
 })
