@@ -2,6 +2,10 @@ function IdsHtmlSelections(id) {
     return document.getElementById(id).value;
 }
 
+function getById(id) {
+    return document.getElementById(id);
+}
+
 const studentForm = document.getElementById('studentForm');
 studentForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -13,12 +17,12 @@ studentForm.addEventListener('submit', function (e) {
         const assessmentTwo = parseInt(IdsHtmlSelections("assessmentTwo"));
         const assessmentThree = parseInt(IdsHtmlSelections("assessmentThree"));
         const assessmentFour = parseInt(IdsHtmlSelections("assessmentFour"));
-        let average = (assessmentOne / 4 + assessmentTwo / 4 + assessmentThree / 4 + assessmentFour / 4);
+        let average = (assessmentOne + assessmentTwo + assessmentThree + assessmentFour) / 4;
 
         if (average >= 7) {
-            document.getElementById('passOrFail').innerHTML = `O aluno ${name} foi aprovado!`;
+            getById('passOrFail').innerHTML = `O aluno ${name} foi aprovado!`;
         } else {
-            document.getElementById('passOrFail').innerHTML = `O aluno ${name} foi reprovado!`;
+            getById('passOrFail').innerHTML = `O aluno ${name} foi reprovado!`;
         }
     }
 })
@@ -31,7 +35,7 @@ formSquareArea.addEventListener('submit', function (e) {
     function calculateAreaOfSquare() {
         const sideOfSquare = parseFloat(IdsHtmlSelections('sideOfSquare'));
         const resultArea = sideOfSquare ** 2;
-        document.getElementById("messageArea").innerHTML = `${resultArea} metros quadrados`;
+        getById("messageArea").innerHTML = `${resultArea} metros quadrados`;
     }
 })
 
@@ -43,12 +47,12 @@ formBmi.addEventListener('submit', function (e) {
     function bmiCalculation() {
         const height = parseFloat(IdsHtmlSelections('height'));
         const bodyMass = parseFloat(IdsHtmlSelections('bodyMass'));
-        const bmiResult = bodyMass / height ** 2;
+        const bmiResult = parseInt(bodyMass / height ** 2);
         const arrayMsgTypeBodyMass = ['Peso baixo', 'Peso normal ou adequado', 'Sobrepeso', 'Obesidade Grau I', 'Obesidade Grau II', 'Obesidade Grau III'];
-        document.getElementById("bmiMessage").innerHTML = `Seu IMC é ${bmiResult}`;
+        getById("bmiMessage").innerHTML = `Seu IMC é ${bmiResult}`;
         
         function classificationBmi(indice) {
-            return document.getElementById('classificacao').innerHTML = arrayMsgTypeBodyMass[indice];
+            return getById('classificacao').innerHTML = arrayMsgTypeBodyMass[indice];
         }
 
         if (bmiResult < 18.5) {
@@ -75,7 +79,7 @@ formGasolineConsumption.addEventListener('submit', function (e) {
     function consumptionCalculator() {
         const kilometersTraveled = parseFloat(IdsHtmlSelections('kilometersTraveled'));
         const priceofGasoline = (kilometersTraveled / 12) * 5.29;
-        document.getElementById('msgCalculatorGasoline').innerHTML = `O valor gasto com combustível foi de R$ ${priceofGasoline} reais`
+        getById('msgCalculatorGasoline').innerHTML = `O valor gasto com combustível foi de R$ ${priceofGasoline} reais`
     }
 })
 
@@ -90,12 +94,12 @@ housePriceForm.addEventListener('submit', function (e) {
         const suite = parseFloat(IdsHtmlSelections('suite')) * 1250;
         const bathroom = parseFloat(IdsHtmlSelections('bathroom')) * 500;
         const parkingSpaces = parseFloat(IdsHtmlSelections('parkingSpaces')) * 500;
-        const priceOfHouse = constructedArea + quarters + suite + bathroom + parkingSpaces;
         const optionYesOrNoFloors = IdsHtmlSelections('optionYesOrNoFloors');
         const optionYesOrNoPool = IdsHtmlSelections('optionYesOrNoPool');
-
+        const priceOfHouse = constructedArea + quarters + suite + bathroom + parkingSpaces;
+        
         function msgPrice(x, y) {
-            return document.getElementById('msgPriceHouse').innerHTML = `O valor da casa é de ${x + y}`;
+            return getById('msgPriceHouse').innerHTML = `O valor da casa é de ${x + y}`;
         }
 
         if (optionYesOrNoFloors === 'sim' && optionYesOrNoPool === 'sim') {
@@ -109,9 +113,7 @@ housePriceForm.addEventListener('submit', function (e) {
         }
         else if (!optionYesOrNoFloors !== 'sim' && !optionYesOrNoPool !== 'sim') {
             msgPrice(priceOfHouse, -1000);
-        } else {
-            console.log('Deu Erro')
-        }
+        } 
     }
     return true;
 })
