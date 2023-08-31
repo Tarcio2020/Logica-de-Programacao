@@ -6,7 +6,7 @@ function getById(id) {
     return document.getElementById(id);
 }
 
-const studentForm = document.getElementById('studentForm');
+const studentForm = getById('studentForm');
 studentForm.addEventListener('submit', function (e) {
     e.preventDefault();
     validation();
@@ -27,7 +27,7 @@ studentForm.addEventListener('submit', function (e) {
     }
 })
 
-const formSquareArea = document.getElementById('formSquareArea');
+const formSquareArea = getById('formSquareArea');
 formSquareArea.addEventListener('submit', function (e) {
     e.preventDefault();
     calculateAreaOfSquare();
@@ -39,7 +39,7 @@ formSquareArea.addEventListener('submit', function (e) {
     }
 })
 
-const formBmi = document.getElementById('formBmi')
+const formBmi = getById('formBmi')
 formBmi.addEventListener('submit', function (e) {
     e.preventDefault();
     bmiCalculation();
@@ -71,7 +71,7 @@ formBmi.addEventListener('submit', function (e) {
     }
 })
 
-const formGasolineConsumption = document.getElementById('formGasolineConsumption');
+const formGasolineConsumption = getById('formGasolineConsumption');
 formGasolineConsumption.addEventListener('submit', function (e) {
     e.preventDefault();
     consumptionCalculator();
@@ -83,7 +83,7 @@ formGasolineConsumption.addEventListener('submit', function (e) {
     }
 })
 
-const housePriceForm = document.getElementById('housePriceForm');
+const housePriceForm = getById('housePriceForm');
 housePriceForm.addEventListener('submit', function (e) {
     e.preventDefault()
     calculatorHousePrice()
